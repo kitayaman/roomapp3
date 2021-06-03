@@ -1,0 +1,27 @@
+<div class="container-fiuld room">
+  <h4 class="pb-4">検索結果：<%= @rooms.count %>件</h4>
+  <div class="row">
+  <% @rooms.each do |room| %>
+    <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="room-frame-inner">      
+        <%= link_to room do %>
+          <div class="room-image-out">
+            <% if room.room_image? %>
+              <%= image_tag room.room_image.url ,class:"room-image"%>
+            <% else %>
+              <%= image_tag 'default_icon.jpg' ,class:"room-image"%>            
+            <% end %>
+          </div>
+          <div class="room-profile">
+            <p class="room-profile-name"><%= room.name %></p>
+            <p class="room-profile-city"><%= room.address %></p>
+            <p class="room-profile-city"></p>            
+            <p class="room-profile-city"></p>
+            <p class="room-profile-price price-icon"><%= room.price %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
