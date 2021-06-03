@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Roomapp3</title>
+    <title>RoomApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render partial: 'shared/my_header' %>
+    <% else %>
+      <%= render partial: 'shared/header_nav' %>
+    <% end %>
+    <% if flash.notice %>
+      <p class="notice"><%= flash.notice %></p>
+    <% end %>
+    <% if flash.alert %>
+      <p class="alert"><%= flash.alert %></p>
+    <% end %>
     <%= yield %>
+    <%= render partial: 'shared/footer' %>
   </body>
 </html>

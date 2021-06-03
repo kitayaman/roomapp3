@@ -1,0 +1,11 @@
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left-nav">
+      <%= link_to image_tag('logo.png') , root_path %>
+    </div>
+    <div class="header-right-nav">
+      <%= link_to "ログイン", new_user_session_path ,class: "btn btn-primary my-2 mx-3" %>
+      <%= link_to "登録する", new_user_registration_path ,class: "btn btn-secondary" %>
+    </div>
+  </div>
+</header>
